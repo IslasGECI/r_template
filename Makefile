@@ -5,8 +5,11 @@ all: check coverage
     clean \
     coverage \
     format \
+    green \
     init \
     install \
+    red \
+    refactor \
     setup \
     tests
 
@@ -40,19 +43,19 @@ init: setup tests
 setup: clean install
 
 red: format
-	cd chicks.petrel && Rscript -e "devtools::test(stop_on_failure = TRUE)" \
+	Rscript -e "devtools::test(stop_on_failure = TRUE)" \
 	&& git restore . \
 	|| (git add R/ tests/testthat/ && git commit -m "🛑🧪 Fail tests")
 	chmod g+w -R .
 
 green: format
-	cd chicks.petrel && Rscript -e "devtools::test(stop_on_failure = TRUE)" \
+	Rscript -e "devtools::test(stop_on_failure = TRUE)" \
 	&& (git add R/ tests/testthat/ && git commit -m "✅ Pass tests") \
 	|| git restore .
 	chmod g+w -R .
 
 refactor: format
-	cd chicks.petrel && Rscript -e "devtools::test(stop_on_failure = TRUE)" \
+	Rscript -e "devtools::test(stop_on_failure = TRUE)" \
 	&& (git add R/ tests/testthat/ && git commit -m "♻️  Refactor") \
 	|| git restore .
 	chmod g+w -R .
