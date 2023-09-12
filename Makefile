@@ -45,12 +45,12 @@ setup: clean install
 red: format
 	Rscript -e "devtools::test(stop_on_failure = TRUE)" \
 	&& git restore . \
-	|| (git add R/ tests/testthat/ && git commit -m "🛑🧪 Fail tests")
+	|| (git add tests/testthat/ && git commit -m "🛑🧪 Fail tests")
 	chmod g+w -R .
 
 green: format
 	Rscript -e "devtools::test(stop_on_failure = TRUE)" \
-	&& (git add R/ tests/testthat/ && git commit -m "✅ Pass tests") \
+	&& (git add R/ && git commit -m "✅ Pass tests") \
 	|| git restore .
 	chmod g+w -R .
 
