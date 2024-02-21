@@ -40,6 +40,10 @@ init: setup tests
 	git config --global user.name "Ciencia de Datos • GECI"
 	git config --global user.email "ciencia.datos@islas.org.mx"
 
+mutants:
+	echo "En espera del doctorado de Evaristo 👾🎉🎓"
+
+
 setup: clean install
 
 red: format
