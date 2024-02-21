@@ -41,7 +41,7 @@ init: setup tests
 	git config --global user.email "ciencia.datos@islas.org.mx"
 
 mutants:
-	echo "En espera del doctorado de Evaristo 👾🎉🎓"
+	@echo "En espera del doctorado de Evaristo 👾🎉🎓"
 
 
 setup: clean install
